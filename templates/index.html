@@ -1,5 +1,254 @@
-<h1>EV-EcoVision</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoVision - Dashboard</title>
 
-{% for usuario in usuarios %}
-    <p>{{ usuario.nome }}</p>
-{% endfor %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #d4af37;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: black;
+            box-shadow: 0 0 15px #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            background: #d4af37;
+            color: black;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background: black;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+        }
+
+        .admin {
+            background: red !important;
+            color: white !important;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #ccc;
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #151515;
+            border-left: 3px solid #d4af37;
+            padding: 18px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            border-left: 3px solid white;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #bbb;
+        }
+
+        .tag {
+            font-size: 11px;
+            color: black;
+            background: #d4af37;
+            padding: 3px 6px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<div class="navbar">
+    <div class="logo">💰 EcoVision</div>
+
+    <div class="menu">
+        <a href="{% url 'cartoes' %}">Cartões</a>
+        <a href="{% url 'categorias' %}">Categorias</a>
+        <a href="{% url 'contas' %}">Contas</a>
+        <a href="{% url 'despesas' %}">Despesas</a>
+        <a href="{% url 'receitas' %}">Receitas</a>
+        <a href="{% url 'gastos_cartoes' %}">Gastos Cartão</a>
+        <a href="{% url 'graficos' %}">Gráficos</a>
+        <a href="{% url 'historico' %}">Histórico</a>
+        <a href="{% url 'limites' %}">Limites</a>
+        <a href="{% url 'metas' %}">Metas</a>
+        <a href="{% url 'notificacoes' %}">Notificações</a>
+        <a href="{% url 'recorrentes' %}">Recorrentes</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+        <a href="{% url 'relatorios' %}">Relatórios</a>
+        <a href="{% url 'saldos' %}">Saldos</a>
+        <a href="{% url 'usuarios' %}">Usuários</a>
+
+        <a href="{% url 'admin:index' %}" class="admin">Admin</a>
+    </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <h1>⚓ Bem-vindo ao EcoVision</h1>
+    <p>Seu sistema financeiro inspirado na jornada de One Piece rumo ao tesouro do controle financeiro.</p>
+</div>
+
+<!-- ===== CARDS ===== -->
+<div class="grid">
+
+    <div class="card">
+        <div class="tag">FINANÇAS</div>
+        <h3>💳 Cartões</h3>
+        <p>Gerencie seus cartões de crédito e controle limites.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">ORGANIZAÇÃO</div>
+        <h3>📂 Categorias</h3>
+        <p>Organize gastos como transporte, alimentação e lazer.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">CONTROLE</div>
+        <h3>🏦 Contas Bancárias</h3>
+        <p>Controle saldo de todas suas contas.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">MOVIMENTAÇÃO</div>
+        <h3>💸 Despesas</h3>
+        <p>Registre todos os gastos do dia a dia.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">GANHOS</div>
+        <h3>💰 Receitas</h3>
+        <p>Controle entradas como salário e freelance.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">CARTÃO</div>
+        <h3>🧾 Gastos no Cartão</h3>
+        <p>Veja compras feitas no crédito/débito.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">ANÁLISE</div>
+        <h3>📊 Gráficos Financeiros</h3>
+        <p>Visualize sua evolução financeira.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">HISTÓRICO</div>
+        <h3>📜 Histórico Financeiro</h3>
+        <p>Veja todas transações antigas.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">CONTROLE</div>
+        <h3>🚧 Limite de Gastos</h3>
+        <p>Defina limites por categoria.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">OBJETIVOS</div>
+        <h3>🎯 Metas Financeiras</h3>
+        <p>Crie objetivos como juntar dinheiro.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">ALERTAS</div>
+        <h3>🔔 Notificações</h3>
+        <p>Receba alertas de gastos e metas.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">FIXOS</div>
+        <h3>🔁 Pagamentos Recorrentes</h3>
+        <p>Controle contas fixas como Netflix e academia.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">USUÁRIO</div>
+        <h3>👤 Perfil</h3>
+        <p>Informações do usuário.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">RELATÓRIOS</div>
+        <h3>📈 Relatórios Financeiros</h3>
+        <p>Relatórios completos de desempenho.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">SALDO</div>
+        <h3>💵 Saldos</h3>
+        <p>Veja seu dinheiro disponível.</p>
+    </div>
+
+    <div class="card">
+        <div class="tag">SISTEMA</div>
+        <h3>👥 Usuários</h3>
+        <p>Gerenciamento de usuários do sistema.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

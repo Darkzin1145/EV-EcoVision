@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Financeiro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #f5f5f5;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #000;
+            padding: 15px;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .navbar a {
+            color: #d4af37;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+        }
+
+        /* CONTAINER */
+        .container {
+            padding: 20px;
+        }
+
+        /* CARDS */
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #d4af37;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        h2 {
+            color: #d4af37;
+        }
+
+        /* BOTÕES (se quiser usar depois) */
+        .btn {
+            background: #d4af37;
+            color: #000;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #b8942f;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="/dashboard/">Dashboard</a>
+    <a href="/receitas/">Receitas</a>
+    <a href="/despesas/">Despesas</a>
+    <a href="/metas/">Metas</a>
+    <a href="/saldos/">Saldos</a>
+</div>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

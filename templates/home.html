@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoVision - Bem-vindo</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #d4af37;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #d4af37;
+            width: 350px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #d4af37;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        .btn:hover {
+            background: black;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Bem-vindo ao EV-EcoVision 💰</h1>
+        <p>Seu sistema de controle financeiro inteligente</p>
+
+        <a href="{% url 'index' %}" class="btn">
+            Entrar
+        </a>
+    </div>
+
+</body>
+</html>

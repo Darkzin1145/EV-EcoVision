@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Novo Cartão</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #0d0d0d;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 0 20px gold;
+            border: 1px solid gold;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px gold;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: gold;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d4af37;
+            transform: scale(1.05);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: gold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>💳 Novo Cartão</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input name="nome" placeholder="Nome do cartão">
+        <input name="limite" placeholder="Limite (R$)">
+        <input name="bandeira" placeholder="Bandeira (Visa, Master...)">
+
+        <button type="submit">Salvar Cartão</button>
+    </form>
+
+    <a href="{% url 'index' %}">← Voltar</a>
+
+</div>
+
+</body>
+</html>

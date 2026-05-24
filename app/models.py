@@ -186,7 +186,7 @@ class GraficoFinanceiro(models.Model):
     periodo_inicio = models.DateField()
     periodo_fim = models.DateField()
 
-    dados = models.TextField()
+    dados = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.tipo
@@ -234,7 +234,7 @@ class PagamentoRecorrente(models.Model):
 # =========================
 class LimiteGastos(models.Model):
     valor_limite = models.DecimalField(max_digits=10, decimal_places=2)
-    categoria = models.CharField(max_length=50)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.categoria
+        return f"{self.categoria.nome} - R$ {self.valor_limite}"
