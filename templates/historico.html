@@ -116,16 +116,14 @@
 
 <div class="card">
 
-    <h1>📈 Receitas Financeiras</h1>
+    <h1>📜 Historico Financeiros<h1>
 
     <form method="POST">
         {% csrf_token %}
-        <input name="Tipo" placeholder="Ex: Despesa/Receita">
+        <input name="Registro" placeholder="Ex: Ida ao mercado">
+        <input name="Tipo" placeholder="Ex: DEspesa/Receita">
         <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Data" placeholder="Ex: 00/00/0000"
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Farmota" placeholder="Ex: PDF">
-        <button type="submit">Salvar Receitas</button>
+        <button type="submit">Salvar Historico</button>
     </form>
 
     <a href="{% url 'index' %}">← Voltar</a>

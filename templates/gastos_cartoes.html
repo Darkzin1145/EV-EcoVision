@@ -116,16 +116,15 @@
 
 <div class="card">
 
-    <h1>📈 Receitas Financeiras</h1>
+    <h1>🧾 Gastos Cartoes</h1>
 
     <form method="POST">
         {% csrf_token %}
-        <input name="Tipo" placeholder="Ex: Despesa/Receita">
+        <input name="Cartão" placeholder="Ex: Nubank">
+        <input name="Valor" placeholder="Ex: 860,00">
         <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Data" placeholder="Ex: 00/00/0000"
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Farmota" placeholder="Ex: PDF">
-        <button type="submit">Salvar Receitas</button>
+        <input name="Descrição" placeholder="Ex: Alimentação">
+        <button type="submit">Salvar Gastos</button>
     </form>
 
     <a href="{% url 'index' %}">← Voltar</a>

@@ -116,16 +116,15 @@
 
 <div class="card">
 
-    <h1>📈 Receitas Financeiras</h1>
+    <h1>👥 Usuarios</h1>
 
     <form method="POST">
-        {% csrf_token %}
-        <input name="Tipo" placeholder="Ex: Despesa/Receita">
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Data" placeholder="Ex: 00/00/0000"
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Farmota" placeholder="Ex: PDF">
-        <button type="submit">Salvar Receitas</button>
+        {% csrf_token %}    
+        <input name="Nome" placeholder="Ex: Kiorran">
+        <input name="Email" placeholder="Ex: joaquimgabriel@gmail.com">
+        <input name="Senha" placeholder="Ex: 12345678910">
+        <input name="Data Cadastro" placeholder="Ex: 00/00/0000">
+        <button type="submit">Salvar Usuario</button>
     </form>
 
     <a href="{% url 'index' %}">← Voltar</a>

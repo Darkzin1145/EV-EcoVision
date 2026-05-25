@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Novo Cartão</title>
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0b1220, #111827);
+        color: #e5e7eb;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar a {
+        color: #93c5fd;
+        margin-right: 15px;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .navbar a:hover {
+        background: #60a5fa;
+        color: #0b1220;
+    }
+
+    /* CONTAINER */
+    .container {
+        padding: 25px;
+    }
+
+    /* CARDS */
+    .card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 18px;
+        margin: 12px 0;
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        transition: 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: #60a5fa;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+        color: #93c5fd;
+        margin-bottom: 10px;
+    }
+
+    /* BOTÕES */
+    .btn {
+        background: #60a5fa;
+        color: #0b1220;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #3b82f6;
+        transform: translateY(-2px);
+    }
+</style>
+</head>
+<div class="navbar">
+    <div class="logo">EcoVision</div>
+
+    <div class="menu">
+        <a href="{% url 'cartoes' %}">Cartões</a>
+        <a href="{% url 'categorias' %}">Categorias</a>
+        <a href="{% url 'contas' %}">Contas</a>
+        <a href="{% url 'despesas' %}">Despesas</a>
+        <a href="{% url 'receitas' %}">Receitas</a>
+        <a href="{% url 'gastos_cartoes' %}">Gastos Cartão</a>
+        <a href="{% url 'graficos' %}">Gráficos</a>
+        <a href="{% url 'historico' %}">Histórico</a>
+        <a href="{% url 'limites' %}">Limites</a>
+        <a href="{% url 'metas' %}">Metas</a>
+        <a href="{% url 'notificacoes' %}">Notificações</a>
+        <a href="{% url 'recorrentes' %}">Recorrentes</a>
+        <a href="{% url 'perfil' %}">Perfil</a>
+        <a href="{% url 'relatorios' %}">Relatórios</a>
+        <a href="{% url 'saldos' %}">Saldos</a>
+        <a href="{% url 'usuarios' %}">Usuários</a>
+
+        <a href="{% url 'admin:index' %}" class="admin">Admin</a>
+    </div>
+</div>
+<body>
+
+<div class="card">
+
+    <h1>🎯 Metas</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input name="Usuario" placeholder="Ex: Kiorran">
+        <input name="Nome" placeholder="Ex: Viajar">
+        <input name="Valor Objetivo" placeholder="Ex: 1000,00">
+        <input name="Valor Atual" placeholder="Ex: 10,00">
+        <input name="Data Inicio" placeholder="Ex: 00/00/0000">
+        <input name="Data Final" placeholder="Ex: 00/00/0000">
+        <input name="Status" placeholder="Ex: Em andamento">
+        <button type="submit">Salvar Meta</button>
+    </form>
+
+    <a href="{% url 'index' %}">← Voltar</a>
+
+</div>
+
+</body>
+</html>

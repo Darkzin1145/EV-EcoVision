@@ -116,16 +116,14 @@
 
 <div class="card">
 
-    <h1>📈 Receitas Financeiras</h1>
+    <h1>🔁 Pagamentos Recorrentes</h1>
 
     <form method="POST">
         {% csrf_token %}
-        <input name="Tipo" placeholder="Ex: Despesa/Receita">
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Data" placeholder="Ex: 00/00/0000"
-        <input name="Data" placeholder="Ex: 00/00/0000">
-        <input name="Farmota" placeholder="Ex: PDF">
-        <button type="submit">Salvar Receitas</button>
+        <input name="Descrição" placeholder="Ex: Uber para Faculdade">
+        <input name="Valor" placeholder="Ex: 3,00">
+        <input name="Periodicidade" placeholder="Ex: Diario">
+        <button type="submit">Salvar Recorrentes</button>
     </form>
 
     <a href="{% url 'index' %}">← Voltar</a>
