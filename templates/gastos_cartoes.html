@@ -86,6 +86,47 @@
         background: #3b82f6;
         transform: translateY(-2px);
     }
+    .navbar{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 25px;
+        background:rgba(0,0,0,0.35);
+        backdrop-filter:blur(12px);
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .logo{
+        font-size:24px;
+        font-weight:bold;
+        color:#60a5fa;
+    }
+
+    .menu{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+    }
+
+    .menu a{
+        text-decoration:none;
+        color:#e5e7eb;
+        padding:10px 15px;
+        border-radius:12px;
+        background:rgba(255,255,255,.05);
+        transition:.3s;
+    }
+
+    .menu a:hover{
+        background:#60a5fa;
+        color:#0b1220;
+        transform:translateY(-2px);
+    }
+
+    .admin{
+        background:#ef4444 !important;
+        color:white !important;
+    }
 </style>
 </head>
 <div class="navbar">
@@ -97,7 +138,6 @@
         <a href="{% url 'contas' %}">Contas</a>
         <a href="{% url 'despesas' %}">Despesas</a>
         <a href="{% url 'receitas' %}">Receitas</a>
-        <a href="{% url 'gastos_cartoes' %}">Gastos Cartão</a>
         <a href="{% url 'graficos' %}">Gráficos</a>
         <a href="{% url 'historico' %}">Histórico</a>
         <a href="{% url 'limites' %}">Limites</a>

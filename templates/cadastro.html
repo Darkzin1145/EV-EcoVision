@@ -1,0 +1,208 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoVision - Cadastro</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.card{
+    width:420px;
+    padding:40px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.4),
+        0 0 30px rgba(59,130,246,.15);
+    color:white;
+    animation:aparecer .6s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.logo{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#94a3b8;
+    margin-bottom:30px;
+    font-size:.95rem;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    margin-bottom:18px;
+    background:#334155;
+    color:white;
+    outline:none;
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+input:focus{
+    border:2px solid #60a5fa;
+    box-shadow:0 0 15px rgba(96,165,250,.4);
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        #10b981,
+        #059669
+    );
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(5,150,105,.35);
+}
+
+.erro{
+    background:#7f1d1d;
+    border:1px solid #dc2626;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+    color:#94a3b8;
+}
+
+.login-link a{
+    color:#60a5fa;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.login-link a:hover{
+    color:white;
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#94a3b8;
+    font-size:.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="logo">🌱</div>
+
+    <h2 class="titulo">
+        Criar Conta
+    </h2>
+
+    <div class="subtitle">
+        Cadastre-se para usar o EcoVision
+    </div>
+
+    {% if erro %}
+        <div class="erro">
+            {{ erro }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Nome de usuário"
+            required
+        >
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Seu e-mail"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Crie uma senha"
+            required
+        >
+
+        <button type="submit" class="btn">
+            Criar Conta
+        </button>
+    </form>
+
+    <div class="login-link">
+        Já possui conta?
+        <a href="{% url 'login' %}">
+            Fazer Login
+        </a>
+    </div>
+
+    <div class="footer">
+        EcoVision © 2026
+    </div>
+
+</div>
+
+</body>
+</html>

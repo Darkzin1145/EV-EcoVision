@@ -132,37 +132,94 @@
             margin-bottom: 8px;
             font-weight: bold;
         }
+        .menu{
+            display:flex;
+            gap:10px;
+        flex-wrap:wrap;
+        }
+
+        .menu details{
+            background:rgba(255,255,255,0.06);
+            border-radius:12px;
+            min-width:180px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .menu summary{
+            padding:12px;
+            cursor:pointer;
+            list-style:none;
+            font-weight:600;
+            color:#e5e7eb;
+            transition:.3s;
+        }
+
+        .menu summary:hover{
+            background:#60a5fa;
+            color:#0b1220;
+        }
+
+        .menu details a{
+            display:block;
+            padding:10px 15px;
+            color:#cbd5e1;
+            text-decoration:none;
+            border-top:1px solid rgba(255,255,255,0.05);
+        }
+
+        .menu details a:hover{
+            background:#334155;
+            color:white;
+        }
     </style>
 </head>
 
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<div class="navbar">
-    <div class="logo">EcoVision</div>
+<div class="menu">
 
-    <div class="menu">
-        <a href="{% url 'cartoes' %}">Cartões</a>
-        <a href="{% url 'categorias' %}">Categorias</a>
-        <a href="{% url 'contas' %}">Contas</a>
-        <a href="{% url 'despesas' %}">Despesas</a>
+    <details>
+        <summary>💰 Finanças</summary>
         <a href="{% url 'receitas' %}">Receitas</a>
-        <a href="{% url 'gastos_cartoes' %}">Gastos Cartão</a>
-        <a href="{% url 'graficos' %}">Gráficos</a>
-        <a href="{% url 'historico' %}">Histórico</a>
-        <a href="{% url 'limites' %}">Limites</a>
-        <a href="{% url 'metas' %}">Metas</a>
-        <a href="{% url 'notificacoes' %}">Notificações</a>
-        <a href="{% url 'recorrentes' %}">Recorrentes</a>
-        <a href="{% url 'perfil' %}">Perfil</a>
-        <a href="{% url 'relatorios' %}">Relatórios</a>
+        <a href="{% url 'despesas' %}">Despesas</a>
         <a href="{% url 'saldos' %}">Saldos</a>
+        <a href="{% url 'contas' %}">Contas</a>
+    </details>
+
+    <details>
+        <summary>💳 Cartões</summary>
+        <a href="{% url 'cartoes' %}">Cartões</a>
+        <a href="{% url 'gastos_cartoes' %}">Gastos Cartão</a>
+        <a href="{% url 'limites' %}">Limites</a>
+    </details>
+
+    <details>
+        <summary>🎯 Planejamento</summary>
+        <a href="{% url 'metas' %}">Metas</a>
+        <a href="{% url 'recorrentes' %}">Recorrentes</a>
+        <a href="{% url 'categorias' %}">Categorias</a>
+    </details>
+
+    <details>
+        <summary>📊 Relatórios</summary>
+        <a href="{% url 'graficos' %}">Gráficos</a>
+        <a href="{% url 'relatorios' %}">Relatórios</a>
+    </details>
+
+    <details>
+        <summary>👤 Usuário</summary>
+        <a href="{% url 'perfil' %}">Perfil</a>
         <a href="{% url 'usuarios' %}">Usuários</a>
+        <a href="{% url 'notificacoes' %}">Notificações</a>
+    </details>
 
-        <a href="{% url 'admin:index' %}" class="admin">Admin</a>
-    </div>
+    <details>
+        <summary>⚙️ Sistema</summary>
+        <a href="{% url 'admin:index' %}">Admin</a>
+    </details>
+
 </div>
-
 <!-- ===== HERO ===== -->
 <div class="hero">
     <h1>Bem-vindo ao EcoVision</h1>
